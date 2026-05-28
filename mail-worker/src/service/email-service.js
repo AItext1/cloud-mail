@@ -378,7 +378,7 @@ const emailService = {
 	async sendByCloudflareEmail(c, params) {
 		const sendForm = {
 			from: { email: params.accountEmail, name: params.name },
-			to: [...params.receiveEmail],
+			to: params.receiveEmail.map(item => String(item).trim().toLowerCase()),
 			subject: params.subject
 		};
 
